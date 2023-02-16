@@ -9,10 +9,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AccueilComponent } from './pages/accueil/accueil.component';
+import { ProfilComponent } from './pages/profil/profil.component';
+import { InfractionsComponent } from './pages/infractions/infractions.component';
+import { ConseilsComponent } from './pages/conseils/conseils.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { UserComponent } from './pages/user/user.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccueilComponent,
+    ProfilComponent,
+    InfractionsComponent,
+    ConseilsComponent,
+    QuizComponent,
+    UserComponent,
+    AuthComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +40,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatToolbarModule,
     MatDividerModule,
+    DashboardRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

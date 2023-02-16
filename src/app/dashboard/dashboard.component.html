@@ -1,0 +1,58 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+    Infrakunafoni
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img
+        class="avatar mat-elevation-z8"
+        src="assets\img\profil.png"
+      />
+  
+      <h4 class="name">geekdjenika</h4>
+      <p class="designation">ADMIN</p>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="accueil">
+        <mat-icon style="color: #3F72AF;">account_balance</mat-icon>
+        <span style="font-family: Montserrat;">Accueil</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="infractions">
+        <mat-icon style="color: #3F72AF;">directions_car</mat-icon>
+        <span style="font-family: Montserrat;">Infractions</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="conseils">
+        <mat-icon style="color: #3F72AF;">highlight</mat-icon>
+        <span style="font-family: Montserrat;">Conseils</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="quiz">
+        <mat-icon style="color: #3F72AF;">games</mat-icon>
+        <span style="font-family: Montserrat;">Quiz</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="user">
+        <mat-icon style="color: #3F72AF;">supervised_user_circle</mat-icon>
+        <span style="font-family: Montserrat;">Utilisateurs</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/auth">
+        <mat-icon style="color: #3F72AF;">exit_to_app</mat-icon>
+        <span style="font-family: Montserrat;">Déconnexion</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
