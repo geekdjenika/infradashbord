@@ -1,1 +1,57 @@
-<p>infractions works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded text-center">Liste des infractions</div>
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                      <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+                
+                        <thead>
+                          <tr>
+                            <th >Name</th>
+                            <th >Email</th>
+                            <th >Department</th>
+                            <th >Phone</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let g of Geeg">
+                            <td>Djenika</td>
+                            <td>Geek</td>
+                            <td>eee</td>
+                            <td>iiii</td>
+                            
+                              <td><button style='margin-right:16px' class="btn btn-danger">Supprimer</button>
+                                <button style='margin-right:16px' class="btn btn-success" style="margin-left: 10px">Modifier</button>
+                              </td>
+                          </tr>
+                          <!-- <tr>
+                            <td>Djenika</td>
+                            <td>Geek</td>
+                            <td>eee</td>
+                            <td>iiii</td>
+                            
+                              <td><button style='margin-right:16px' class="btn btn-danger">Supprimer</button>
+                                <button style='margin-right:16px' class="btn btn-success" style="margin-left: 10px">Modifier</button>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td>Djenika</td>
+                            <td>Geek</td>
+                            <td>eee</td>
+                            <td>iiii</td>
+                            
+                              <td><button style='margin-right:16px' class="btn btn-danger">Supprimer</button>
+                                <button style='margin-right:16px' class="btn btn-success" style="margin-left: 10px">Modifier</button>
+                              </td>
+                          </tr> -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

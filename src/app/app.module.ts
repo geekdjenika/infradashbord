@@ -18,7 +18,7 @@ import { UserComponent } from './pages/user/user.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
-
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,8 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
     MatIconModule,
     MatToolbarModule,
     MatDividerModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

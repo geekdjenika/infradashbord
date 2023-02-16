@@ -1,5 +1,11 @@
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
+mat-icon {
+    font-size: 50px;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+.centrer {
+    align-items: center;
 }
