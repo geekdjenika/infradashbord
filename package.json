@@ -23,10 +23,10 @@
     "@fontsource/montserrat": "^4.5.14",
     "@material/button": "^14.0.0",
     "@ngneat/until-destroy": "^9.2.3",
-    "angular-datatables": "^15.0.0",
     "bootstrap": "^5.2.3",
     "datatables.net": "^1.13.2",
     "datatables.net-dt": "^1.13.2",
+    "material-icons": "^1.13.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
