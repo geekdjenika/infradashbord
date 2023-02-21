@@ -29,7 +29,9 @@ export class InfractionsComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }

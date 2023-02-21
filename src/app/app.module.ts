@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { UserComponent } from './pages/user/user.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { InfractioncreerComponent } from './pages/infractioncreer/infractioncreer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
     QuizComponent,
     UserComponent,
     AuthComponent,
-    DashboardComponent
+    DashboardComponent,
+    InfractioncreerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
     MatToolbarModule,
     MatDividerModule,
     DashboardRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
