@@ -1,0 +1,124 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+  @media screen and (max-width: 900px) {
+    .form-select{
+      font-size: medium;
+    }
+    .buttonColor{
+      font-size: medium;
+      text-align: center;
+    }
+    .hideColonneOder{
+      display: none;
+    }
+    th{
+      font-size: medium;
+
+    }
+    td{
+      font-size: small;
+    }
+
+  }
+  @media screen and (max-width: 450px) {
+    .buttonColor{
+      font-size: small;
+    }
+    .hideColonne{
+      display: none;
+    }
+    th{
+      font-size: medium;
+    }
+    td{
+      font-size: small;
+    }
+
+  }
+
+img{
+  width: 60%;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  height: 100px;
+  width: 100px;
+}
+
+.card-body{
+    font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card{
+  padding: 1.5em .5em .5em;
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  height: 250px !important;
+  cursor: pointer;
+}
+
+.card-title{
+    font-family: 'Montserrat', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.iconprof{
+  display: flex;
+  justify-content: space-between;
+}
+.par{
+  margin-top: 20px;
+}
+
+.pagination {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    display: flex;
+    margin-left: 31%;
+    margin-top: 2%;
+}
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #3F72AF; }
+
+ion-col{
+  display: flex;
+
+}
+
+ion-col.md.hydrated{
+  margin-left:28%;
+  border-radius: 56px;
+}
+
+ @media screen and (max-width:450px) {
+
+img{
+  height: 70px;
+  width: 70px;
+}
+
+ }
+
+
+ @media screen and (max-width: 825px) {
+  .pagination {
+    position: relative;
+    margin-top: 4%;
+    margin-left: 29%;
+  }
+  
+ }
+

@@ -1,6 +1,21 @@
+
 mat-toolbar {
   background: #3F72AF;
   color: white;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+h4{
+  font-family: 'Montserrat', sans-serif;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif;
 }
 
 mat-sidenav {

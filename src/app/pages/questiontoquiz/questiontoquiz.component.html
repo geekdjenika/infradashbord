@@ -1,0 +1,38 @@
+<div class="modal fade" id="critere" tabindex="100" aria-labelledby="critere" aria-hidden="true">
+    <div class="modal-dialog d-flex justify-content-center">
+      <div class="modal-content w-100">
+        <form 
+          (submit)="onSubmit() "
+          style="width: 96%; margin-left: auto;margin-right: auto;">
+          <label>Choississez les questions :</label>
+          <div >
+            <div class="input-box">
+                <option style="font-weight: 100;" selected>question 1</option>
+              <select class="form-select" aria-label="Default select example" name="">
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 1</option>
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 2</option>
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 3</option>
+              </select>
+            </div>
+            <div class="input-box">
+                <option style="font-weight: 100;" selected>question 2</option>
+              <select class="form-select" aria-label="Default select example" name="">
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 1</option>
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 2</option>
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 3</option>
+              </select>
+            </div>
+            <div class="input-box">
+                <option style="font-weight: 100;" selected>question 3</option>
+              <select class="form-select" aria-label="Default select example" name="">
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 1</option>
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 2</option>
+                <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 3</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
+</div>

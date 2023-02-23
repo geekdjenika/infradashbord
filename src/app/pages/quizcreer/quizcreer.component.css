@@ -1,0 +1,161 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.box {
+    width: 100%;
+    padding: 25px 30px;
+    border: #000 3px solid;
+    margin: 20px auto;
+
+}
+
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 15px;
+    background: #fff;
+    margin: auto;
+    height: auto !important;
+
+}
+#mere{
+  overflow-y:scroll;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+
+
+input {
+    color: #000;
+}
+
+.container form .activite-details {
+    color: #FF7900;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+span {
+    color: #3F72AF;
+    font-weight: bold;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    margin-right: 10px;
+    /* width: calc(100% / 2 - 20px); */
+}
+
+.details {
+    display: block;
+    font-weight: 500;
+}
+
+.activite-details .input-box .details {
+    display: block;
+    font-weight: 500;
+}
+
+#details {
+    border-radius: 15px;
+}
+
+
+
+
+.activite-details .input-box input:focus,
+.activite-details .input-box input:valid {
+    border-color: #ccc;
+}
+
+form .button {
+    margin: 45px 0;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.but {
+    border-radius: 15px;
+    padding: 8px;
+    width: 180px;
+    background-color: #3F72AF;
+    color: #FFF;
+    border: #3F72AF 1px solid;
+}
+
+.but:hover {
+    background: #FFF;
+    color: #3F72AF;
+}
+
+form .button .input {
+    height: 100%;
+    color: #FFFF;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
+    letter-spacing: 1px;
+}
+
+form .button input:hover {
+    background: linear-gradient(135deg);
+}
+
+textarea {
+    color: #000;
+    padding:5px !important;
+}
+
+@media (max-width: 584px) {
+    .container {
+        max-width: 100%;
+        height: 100%;
+        background: #FFFF;
+        padding: 5% 7%;
+    }
+
+    form .activite-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .container form .activite-details {
+        overflow-y: scroll;
+    }
+
+    .activite-details::-webkit-scrollbar {
+        width: 0;
+    }
+
+    form .button {
+        padding: 5%;
+    }
+
+    .title {
+        margin-top: 5%;
+    }
+
+    input[type=submit] {
+        border-radius: 10px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        margin-bottom: 3%;
+    }
+
+    input[type=reset] {
+        border-radius: 5px;
+        padding: 7px 10px;
+        background-color: #FF7900;
+        color: #FFFF;
+        width: 100%;
+    }
+}

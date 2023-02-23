@@ -1,4 +1,7 @@
+* {
+    font-family: 'Montserrat', sans-serif;
 
+}
 .table-wrapper {
     width: 700px;
     margin: 20px auto;
@@ -24,7 +27,7 @@
     /* font-weight: bold; */
     /* font-size: 12px; */
     text-shadow: none;
-    min-width: 100px;
+    min-width: 250px;
     border-radius: 50px;
     line-height: 13px;
 }
@@ -34,3 +37,71 @@
 table.table {
     table-layout: fixed;
 }
+
+.pagin {
+    margin-top: 40px;
+    width: 400px;
+    height: 500px;
+}
+
+.add-new {
+    background-color: #3F72AF;
+    color: #fff;
+    float: right;
+    height: 30px;
+    /* font-weight: bold; */
+    /* font-size: 12px; */
+    text-shadow: none;
+    border: none;
+    min-width: 90px;
+    border-radius: 50px;
+    line-height: 13px;
+    margin-left: 1px;
+    margin-right:2px;
+}
+
+.supress {
+    background-color: crimson;
+    color: #fff;
+    float: right;
+    height: 30px;
+    /* font-weight: bold; */
+    /* font-size: 12px; */
+    text-shadow: none;
+    border: none;
+    min-width: 90px;
+    border-radius: 50px;
+    line-height: 13px;
+    margin-right:20px;
+}
+
+.gras {
+    color: #3F72AF;
+    font-weight: bold;
+}
+
+.but {
+    border-radius: 15px;
+    padding: 8px;
+    width: 180px;
+    background-color: #3F72AF;
+    color: #FFF;
+    border: #3F72AF 1px solid;
+    float: right;
+}
+
+.but:hover {
+    background: #FFF;
+    color: #3F72AF;
+}
+
+.pagination {
+    /* margin-left: auto;
+    margin-right: auto; */
+    font-size: 16px;
+    display: flex;
+    /* margin-left: 31%; */
+    /* margin-top: 2%; */
+}
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: #3F72AF; }

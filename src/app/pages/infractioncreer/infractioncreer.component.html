@@ -1,16 +1,122 @@
-<h3>Ajouter une infraction</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Désignation</label>
-      <input type="text" class="form-control" id="description" required [(ngModel)]="infraction.description" name="description">
-    </div>
+<div >
+    <form (ngSubmit)="onSubmit()" autocomplete="off" >
 
-    <div class="form-group">
-      <label for="name">Réference</label>
-      <input type="text" class="form-control" id="reference" required [(ngModel)]="infraction.reference" name="reference">
-    </div>
+      <div >
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Infraction ajoutée avec succès !
+        </div>
 
-    <button class="btn btn-success">Submit</button>
-  </form>
-</div>
+        <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+        </div>
+        
+        <div >
+            <span > Désignation *</span>
+            <div class="shadow p-3 mb-5 bg-white rounded">
+            <textarea class="form-control" name="description" [(ngModel)]="description" id="details"
+                placeholder="Donner une description de l'infraction" required></textarea>
+            </div>
+        </div>
+
+        <div >
+            <span>Réference *</span>
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <input type="text" [(ngModel)]="reference"  id="inputs" name="reference" placeholder="Article ..." class="form-control" autocomplete="off"  required>
+            </div>
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <span>Amende 1</span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Montant</Label>
+                                <input type="number" [(ngModel)]="montant1"  id="inputs" name="montant1" placeholder="1000" class="form-control" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Devise</Label>
+                                <select name="devise1" [(ngModel)]="devise1" class="select" class="form-control">
+                                    <option>FCFA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-box mb-3">
+                        <span class="details">Catégorie</span>
+                        <select name="categorieamende1" [(ngModel)]="categorieamende1" class="select" class="form-control">
+                            <option >Gros porteurs</option>
+                            <option >Véhicules légers</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <span>Amende 2</span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Montant</Label>
+                                <input type="number" [(ngModel)]="montant2"  id="inputs" name="montant2" placeholder="1000" class="form-control" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Devise</Label>
+                                <select name="devise2" [(ngModel)]="devise2" class="select" class="form-control">
+                                    <option>FCFA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="col-md-6">
+                    <div class="input-box mb-3">
+                        <span class="details">Catégorie</span>
+                        <select name="categorieamende2" [(ngModel)]="categorieamende2" class="select" class="form-control">
+                            <option >Gros porteurs</option>
+                            <option >Véhicules légers</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <span>Ajouter un vocal</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="input-box mb-3">
+                        <Label for="inputs" >Langue</Label>
+                        <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
+                            <option>bm</option>
+                            <option>fr</option>
+                            <option>en</option>
+                        </select>
+                    </div>                  
+                </div>
+                <div class="col-md-9">
+                    <div class="input-box mb-3">
+                        <div class="input-box">
+                            <Label >Selectionner un audio</Label>
+                            <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
+                              (change)="selectFile($event)" accept="audio/*" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="button">
+        <input class="but" type="submit" value="Ajouter">
+      </div>
+    </form>
+
+  </div>

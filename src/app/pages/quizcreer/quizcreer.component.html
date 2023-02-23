@@ -1,0 +1,83 @@
+<div >
+    <form (ngSubmit)="addQuiz()" autocomplete="off" >
+
+      <div >
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Infraction ajoutée avec succès !
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+        </div>
+        
+        <div >
+            <span > Label *</span>
+            <div class="shadow p-3 mb-5 bg-white rounded">
+            <textarea class="form-control" name="label" [(ngModel)]="label" id="details"
+                placeholder="Donner un nom à votre quiz !" required></textarea>
+            </div>
+        </div>
+      </div>
+      <div class="button">
+        <input class="but" type="submit" value="Ajouter le quiz">
+      </div>
+    </form>
+
+</div>
+
+<div >
+    <form (ngSubmit)="addQuestion()" autocomplete="off" >
+
+      <div >
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Infraction ajoutée avec succès !
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+        </div>
+        
+
+        <div >
+            <span>Question *</span>
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <input type="text" [(ngModel)]="question"  id="inputs" name="question" placeholder="Posez votre question ici !"class="form-control" autocomplete="off"  required>
+            <div class="row">
+                <div class="col-ld-12">
+                    <div class="input-box mb-3">
+                        <Label for="inputs" >Bonne réponse *</Label>
+                        <input type="text" [(ngModel)]="reponse"  id="inputs" name="reponse" placeholder="Bonne réponse" class="form-control" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-ld-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Mauvaise réponse 1 *</Label>
+                                <input type="text" [(ngModel)]="reponse1"  id="inputs" name="reponse1" placeholder="Mauvaise réponse 1" class="form-control" autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Mauvaise réponse 2 *</Label>
+                                <input type="text" [(ngModel)]="reponse2"  id="inputs" name="reponse2" placeholder="Mauvaise réponse 2" class="form-control" autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-box mb-3">
+                                <Label for="inputs" >Mauvaise réponse 3 *</Label>
+                                <input type="text" [(ngModel)]="reponse3"  id="inputs" name="reponse3" placeholder="Mauvaise réponse 3" class="form-control" autocomplete="off" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="button">
+        <input class="but" type="submit" value="Ajouter la question">
+      </div>
+    </form>
+
+  </div>

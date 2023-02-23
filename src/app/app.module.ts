@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,9 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { InfractioncreerComponent } from './pages/infractioncreer/infractioncreer.component';
+import { ConseilcreerComponent } from './pages/conseilcreer/conseilcreer.component';
+import { QuizcreerComponent } from './pages/quizcreer/quizcreer.component';
+import { QuestiontoquizComponent } from './pages/questiontoquiz/questiontoquiz.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,10 @@ import { InfractioncreerComponent } from './pages/infractioncreer/infractioncree
     UserComponent,
     AuthComponent,
     DashboardComponent,
-    InfractioncreerComponent
+    InfractioncreerComponent,
+    ConseilcreerComponent,
+    QuizcreerComponent,
+    QuestiontoquizComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,10 @@ import { InfractioncreerComponent } from './pages/infractioncreer/infractioncree
     MatToolbarModule,
     MatDividerModule,
     DashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@
 
 * {
 	box-sizing: border-box;
+	
 }
 
 body {
@@ -17,14 +18,17 @@ body {
 
 h1 {
 	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 }
 
 h2 {
+	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 }
 
 p {
+	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -33,10 +37,12 @@ p {
 }
 
 span {
+	font-family: 'Montserrat', sans-serif;
 	font-size: 12px;
 }
 
 a {
+	font-family: 'Montserrat', sans-serif;
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
@@ -44,6 +50,7 @@ a {
 }
 
 button {
+	font-family: 'Montserrat', sans-serif;
 	border-radius: 20px;
 	border: 1px solid #000000;
 	background-color: #3F72AF;
@@ -57,10 +64,12 @@ button {
 }
 
 button:active {
+	font-family: 'Montserrat', sans-serif;
 	transform: scale(0.95);
 }
 
 button:focus {
+	font-family: 'Montserrat', sans-serif;
 	outline: none;
 }
 
@@ -70,6 +79,7 @@ button.ghost {
 }
 
 form {
+	font-family: 'Montserrat', sans-serif;
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -81,6 +91,7 @@ form {
 }
 
 input {
+	font-family: 'Montserrat', sans-serif;
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;

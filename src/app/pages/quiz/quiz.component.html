@@ -1,1 +1,87 @@
-<p>quiz works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+              <div class="panel-body">
+                <div class="table-title">
+                  <div class="row">
+                      <div class="col-sm-8"><h2>Liste des <b>quiz</b></h2></div>
+                      <div class="col-sm-4">
+                          <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()"><i class="bi bi-plus"></i> Ajouter un quiz</button>
+                      </div>
+                  </div>
+              </div>
+                <div class="panel panel-primary">
+                    
+                      <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+                
+                        <thead>
+                          <tr>
+                            <th >Nom</th>
+                            <th >Nombre de question</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let g of Geeg | paginate:{itemsPerPage:8,currentPage:page}, let i = index">
+                            <td>Règles de la circulation</td>
+                            <td>5</td>
+                            <td>
+                                <button class="supress">Supprimer</button>
+                                <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal">Ajouter des questions</button>
+                            </td>
+                        </tbody>
+                        
+                      </table>
+                      <br>
+                      <pagination-controls class="pagination" (pageChange)="page=$event" nextLabel="Suivant" previousLabel="Précedent">
+                      </pagination-controls>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="critere" tabindex="100" aria-labelledby="critere" aria-hidden="true">
+  <div class="modal-dialog d-flex justify-content-center">
+    <div class="modal-content w-100">
+      <form 
+        (submit)="onSubmit() "
+        style="width: 96%; margin-left: auto;margin-right: auto;">
+        <label class="gras">Choississez les questions :</label>
+        <div >
+          <br>
+          <div class="input-box">
+              <option style="font-weight: 100;" selected>question 1</option>
+            <select class="form-select" aria-label="Default select example" name="">
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 1</option>
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 2</option>
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 3</option>
+            </select>
+          </div>
+          <div class="input-box">
+              <option style="font-weight: 100;" selected>question 2</option>
+            <select class="form-select" aria-label="Default select example" name="">
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 1</option>
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 2</option>
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 3</option>
+            </select>
+          </div>
+          <div class="input-box">
+              <option style="font-weight: 100;" selected>question 3</option>
+            <select class="form-select" aria-label="Default select example" name="">
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 1</option>
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 2</option>
+              <option style="font-weight: bold;"ngFor="let option of options" [value]="">Q 3</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="but" style="margin-bottom: 20px;">Envoyer</button>
+        <br>
+      </form>
+    </div>
+  </div>
+</div>

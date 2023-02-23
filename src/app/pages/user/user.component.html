@@ -1,1 +1,22 @@
-<p>user works!</p>
+<div class="container">
+    <div class="row">
+        <div  class=" col-6 col-sm-3 col-md-4 col-lg-3" *ngFor=" let a of users | paginate:{itemsPerPage:8, currentPage:page}; let index = index">
+
+            <div *ngIf="longueur!==0" class="card" style="margin-bottom: 4%;">
+              <img *ngIf="a.image!=null" src="" class="card-img-top" alt="..." >
+              <img *ngIf="a.image==null" src="assets/img/profil.png" class="card-img-top" alt="...">
+        
+              <div class="card-body">
+                <h5 class="card-title">geekdjenika</h5>
+                <p class="card-text">ADMIN</p>
+              </div>
+        
+            </div>
+        
+        </div>
+    </div>
+    <pagination-controls (pageChange)="page = $event" nextLabel="Suivants" previousLabel="Précédents" [responsive]="responsive" class="pagination">
+      
+    </pagination-controls>
+</div>
+

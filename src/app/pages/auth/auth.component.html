@@ -3,10 +3,10 @@
 	<div class="form-container sign-up-container">
 		<form action="#">
 			<h1>INSCRIPTION</h1>
-			<input type="text" placeholder="Nom d'utilisateur" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Mot de passe" />
-            <input type="password" placeholder="Confirmer le mot de passe" />
+			<input type="text" [(ngModel)]="nusername"  id="inputs" name="nusername" placeholder="Nom d'utilisateur" />
+			<input type="email" [(ngModel)]="nemail"  id="inputs" name="nemail" placeholder="Email" />
+			<input type="password" [(ngModel)]="npassword"  id="inputs" name="npassword" placeholder="Mot de passe" />
+            <input type="password" [(ngModel)]="ncpassword"  id="inputs" name="ncpassword" placeholder="Confirmer le mot de passe" />
 			<button>S'inscrire</button>
             <span>Ou continuer avec</span>
             <div class="social-container">
@@ -18,8 +18,8 @@
 	<div class="form-container sign-in-container">
 		<form action="#">
 			<h1>CONNEXION</h1>
-			<input type="username" placeholder="Nom d'utilisateur" />
-			<input type="password" placeholder="Mot de passe" />
+			<input type="text" [(ngModel)]="username"  id="inputs" name="username" placeholder="Nom d'utilisateur" />
+			<input type="password" [(ngModel)]="password"  id="inputs" name="password" placeholder="Mot de passe" />
 			<a href="">Mot de passe oublié ?</a>
 			<button>Se connecter</button>
             <span>Ou continuer avec</span>

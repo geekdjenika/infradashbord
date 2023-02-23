@@ -7,7 +7,7 @@
                   <div class="row">
                       <div class="col-sm-8"><h2>Liste des <b>infractions</b></h2></div>
                       <div class="col-sm-4">
-                          <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Ajouter une infraction</button>
+                          <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()"><i class="bi bi-plus"></i> Ajouter une infraction</button>
                       </div>
                   </div>
               </div>
@@ -24,19 +24,53 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let g of Geeg">
+                          <tr *ngFor="let g of Geeg | paginate:{itemsPerPage:8,currentPage:page}">
                             <td>Arrêt non  authorisé</td>
                             <td>Article 23</td>
                             <td>2000 F</td>
-                            <td><button style='margin-right:16px' class="btn btn-danger">Supprimer</button>
-                              <button style='margin-right:16px' class="btn btn-success" style="margin-left: 10px">Modifier</button>
+                            <td><button class="supress">Supprimer</button>
+                              <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal">Modifier</button>
                             </td>
                           </tr>
                         </tbody>
+                        
                       </table>
+                      <br>
+                      <pagination-controls class="pagination" (pageChange)="page=$event" nextLabel="Suivant" previousLabel="Précedent">
+                      </pagination-controls>
                     </div>
                   </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<div class="modal fade" id="critere" tabindex="100" aria-labelledby="critere" aria-hidden="true">
+  <div class="modal-dialog d-flex justify-content-center">
+    <div class="modal-content w-100">
+      <form 
+        (submit)="modifier() "
+        style="width: 96%; margin-left: auto;margin-right: auto;">
+        <label class="gras">Modifier l'infraction :</label>
+        <br>
+        <div >
+          <br>
+          <div class="input-box">
+            <span > Désignation *</span>
+            <textarea class="form-control" name="description" [(ngModel)]="description" id="details"
+                placeholder="Donner une description de l'infraction" required></textarea>
+          </div>
+          <div class="input-box">
+            <span>Réference *</span>
+            <input type="text" [(ngModel)]="reference"  id="inputs" name="reference" placeholder="Article ..." class="form-control" autocomplete="off"  required>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="but" style="margin-bottom: 20px;">Envoyer</button>
+        <br>
+      </form>
+    </div>
+  </div>
 </div>

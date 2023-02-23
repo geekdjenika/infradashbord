@@ -1,11 +1,30 @@
+
 mat-icon {
     font-size: 50px;
 }
 
 h4 {
     font-weight: bold;
+    font-size: x-large;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .centrer {
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+}
+
+.text-center {
+    font-family: 'Montserrat', sans-serif;
 }

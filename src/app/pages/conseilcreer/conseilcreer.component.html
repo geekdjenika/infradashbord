@@ -1,0 +1,50 @@
+<div class="centrer">
+    <form (ngSubmit)="onSubmit()" autocomplete="off" >
+
+      <div >
+        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Infraction ajoutée avec succès !
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
+          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
+        </div>
+        
+        <div >
+            <span > Conseil *</span>
+            <div class="shadow p-3 mb-5 bg-white rounded">
+            <textarea class="form-control" name="conseil" [(ngModel)]="conseil" id="details"
+                placeholder="Saississez un conseil" required></textarea>
+            </div>
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <span>Ajouter un vocal</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="input-box mb-3">
+                        <Label for="inputs" >Langue</Label>
+                        <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
+                            <option>bm</option>
+                            <option>fr</option>
+                            <option>en</option>
+                        </select>
+                    </div>                  
+                </div>
+                <div class="col-md-9">
+                    <div class="input-box mb-3">
+                        <div class="input-box">
+                            <Label >Selectionner un audio</Label>
+                            <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
+                              (change)="selectFile($event)" accept="audio/*" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="button">
+        <input class="but" type="submit" value="Ajouter">
+      </div>
+    </form>
+
+  </div>
