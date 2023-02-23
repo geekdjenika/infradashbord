@@ -1,13 +1,13 @@
 <h2>Infrakunafoni</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form>
 			<h1>INSCRIPTION</h1>
 			<input type="text" [(ngModel)]="nusername"  id="inputs" name="nusername" placeholder="Nom d'utilisateur" />
 			<input type="email" [(ngModel)]="nemail"  id="inputs" name="nemail" placeholder="Email" />
 			<input type="password" [(ngModel)]="npassword"  id="inputs" name="npassword" placeholder="Mot de passe" />
             <input type="password" [(ngModel)]="ncpassword"  id="inputs" name="ncpassword" placeholder="Confirmer le mot de passe" />
-			<button>S'inscrire</button>
+			<button (click)="signup(nusername,nemail,npassword,ncpassword)">S'inscrire</button>
             <span>Ou continuer avec</span>
             <div class="social-container">
 				<a href="" class="social"><i class="fab fa-google"></i></a>
@@ -16,12 +16,12 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form>
 			<h1>CONNEXION</h1>
 			<input type="text" [(ngModel)]="username"  id="inputs" name="username" placeholder="Nom d'utilisateur" />
 			<input type="password" [(ngModel)]="password"  id="inputs" name="password" placeholder="Mot de passe" />
 			<a href="">Mot de passe oublié ?</a>
-			<button>Se connecter</button>
+			<button (click)="signin(username,password)">Se connecter</button>
             <span>Ou continuer avec</span>
             <div class="social-container">
 				<a href="" class="social"><i class="fab fa-google"></i></a>
