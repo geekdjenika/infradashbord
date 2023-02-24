@@ -10,11 +10,12 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class AccueilComponent implements OnInit {
 
-  public storageservice!: StorageService;
+  listinfraction : any
 
-  constructor() { }
+  constructor(private storageservice: StorageService) { }
 
   ngOnInit(): void {
+    // this.storageservice.
   }
 
 }

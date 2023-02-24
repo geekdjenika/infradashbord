@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import { Infraction } from 'src/app/models/infraction';
-import { InfractionService } from 'src/app/services/infraction.service';
 
 @Component({
   selector: 'app-infractioncreer',
@@ -29,8 +27,7 @@ export class InfractioncreerComponent implements OnInit {
   alertTrue:any
   messageerror:any
 
-  constructor(private infractionservice: InfractionService,
-    private router: Router, private builder: FormBuilder,
+  constructor(private router: Router, private builder: FormBuilder,
     private activeroute: ActivatedRoute) { }
 
   ngOnInit(): void {

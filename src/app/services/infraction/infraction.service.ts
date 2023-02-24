@@ -1,18 +1,17 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InfractionService {
 
-  env = environment.host;
+  host = environment.host;
 
   constructor(private http : HttpClient) { }
 
   getAllInfraction() {
-    
+    return this.http.get(`${this.host}/infraction/get/all`);
   }
-
 }

@@ -25,6 +25,7 @@ import { InfractioncreerComponent } from './pages/infractioncreer/infractioncree
 import { ConseilcreerComponent } from './pages/conseilcreer/conseilcreer.component';
 import { QuizcreerComponent } from './pages/quizcreer/quizcreer.component';
 import { QuestiontoquizComponent } from './pages/questiontoquiz/questiontoquiz.component';
+import { AuthInterceptorProvider } from './services/interceptor/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,7 @@ import { QuestiontoquizComponent } from './pages/questiontoquiz/questiontoquiz.c
     NgxPaginationModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
