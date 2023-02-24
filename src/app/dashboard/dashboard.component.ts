@@ -1,3 +1,4 @@
+import { StorageService } from './../services/auth/storage.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, private router: Router) { }
+  constructor(private observer: BreakpointObserver, private router: Router, private storageservice : StorageService) { }
 
   ngOnInit(): void {
   }
@@ -45,6 +46,11 @@ export class DashboardComponent implements OnInit {
           this.sidenav.close();
         }
       });
+  }
+
+  deconnecter() {
+    this.storageservice.clean()
+    window.location.reload()
   }
 
 

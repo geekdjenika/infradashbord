@@ -43,12 +43,7 @@ export class AuthComponent implements OnInit {
     const container = document.getElementById('container') as HTMLElement;
 
     if(password1 == password2) {
-      this.authservice.signUp(username, email,password1);
-      console.log(this.result)
-      if(this.result = 'true') {
-        container.classList.remove("right-panel-active");
-      }
-      
+      this.authservice.signUp(username, email,password1,container);
     } else {
       Swal.fire('Erreur mot de passe', 'Les mots de passe ne correspondent pas !', 'error')
     }

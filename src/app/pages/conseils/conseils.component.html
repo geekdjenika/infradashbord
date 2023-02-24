@@ -1,7 +1,7 @@
 <div class="container" >
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn-info add-new"  (click)="ajouterConseil()"><i class="fa fa-plus"></i> Ajouter un nouveau conseil</button>
+            <button type="button" class="btn-info add-new"  (click)="ajouterConseil()"><i class="bi bi-plus"></i> Ajouter un nouveau conseil</button>
         </div>
         <div class="col-12">
             <div class="centrer">
@@ -15,7 +15,7 @@
                                             <h4>#{{i+1}}</h4>
                                         </div>
                                         <div class="col-sm-6 d-flex justify-content-end">
-                                            <i class="bi bi-pencil-square" data-mdb-target="#critere" data-mdb-toggle="modal"></i>        
+                                            <i class="bi bi-pencil-square" data-mdb-target="#critere" data-mdb-toggle="modal"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    
+
     <pagination-controls class="pagination" (pageChange)="page=$event" nextLabel="Suivant" previousLabel="Précedent">
     </pagination-controls>
 </div>
@@ -36,7 +36,7 @@
 <div class="modal fade" id="critere" tabindex="100" aria-labelledby="critere" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
       <div class="modal-content w-100">
-        <form 
+        <form
           (submit)="modifier()"
           style="width: 96%; margin-left: auto;margin-right: auto;">
           <label class="gras">Modifier le conseil :</label>

@@ -1,3 +1,4 @@
+import { StorageService } from './../../services/auth/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
@@ -8,6 +9,8 @@ import { MatIcon } from '@angular/material/icon';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
+
+  public storageservice!: StorageService;
 
   constructor() { }
 

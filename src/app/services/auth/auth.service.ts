@@ -24,23 +24,32 @@ export class AuthService {
         this.router.navigate(['/dashboard/accueil'])
       },
       error: e => {
-        Swal.fire('Erreur', 'Nom d\'utilisateur ou mot de passe incorrecte !', 'error')
+        Swal.fire({
+          title: 'Erreur',
+          text: 'Nom d\'utilisateur ou mot de passe incorrecte !',
+          timer: 1000,
+          icon: 'error'
+        })
       }
     })
   }
 
-  signUp(username: string, email: string, password: string) {
+  signUp(username: string, email: string, password: string, element : HTMLElement) {
     console.log('trtman ...')
     return this.connexionservice.signup(username, email, password).subscribe({
       next: data => {
         console.log(data)
         Swal.fire('Compte créé !', 'Votre compte est créé avec succès !', 'success')
-        localStorage.setItem('signup','true')
+        element.classList.remove("right-panel-active");
       },
       error: e => {
-        console.log(e.error.message)
-        Swal.fire('Erreur', e.error.message, 'error')
-        localStorage.setItem('signup','false')
+        console.log(e)
+        Swal.fire({
+          title: 'Erreur',
+          text: e.error.message,
+          timer: 1000,
+          icon: 'error'
+        })
       }
     })
   }

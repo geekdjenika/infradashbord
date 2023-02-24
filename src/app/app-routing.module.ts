@@ -1,3 +1,4 @@
+import { IsAuthenticatedGuard } from './services/guard/is-authenticated.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
@@ -11,9 +12,10 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [IsAuthenticatedGuard]
   },
-  
+
   {
     path: 'auth',
     component: AuthComponent,
