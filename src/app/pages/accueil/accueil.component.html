@@ -1,40 +1,40 @@
 <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="shadow p-3 mb-5 bg-white rounded" (click)="infraction()">
             <div class="row centrer">
                 <div class="col-sm-3">
                     <mat-icon style="color: #3F72AF;">directions_car</mat-icon>
                 </div>
                 <div class="col-sm">
                     <h5>Infractions</h5>
-                    <h4>25</h4>
+                    <h4>{{listinfraction.length}}</h4>
                 </div>
             </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="shadow p-3 mb-5 bg-white rounded" (click)="conseil()">
             <div class="row centrer">
                 <div class="col-sm-3">
                     <mat-icon style="color: #3F72AF;">highlight</mat-icon>
                 </div>
                 <div class="col-sm">
                     <h5>Conseils</h5>
-                    <h4>15</h4>
+                    <h4>{{listconseil.length}}</h4>
                 </div>
             </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="shadow p-3 mb-5 bg-white rounded" (click)="utilisateur()">
             <div class="row centrer">
                 <div class="col-sm-3">
                     <mat-icon style="color: #3F72AF;">supervised_user_circle</mat-icon>
                 </div>
                 <div class="col-sm">
                     <h5>Utilisateurs</h5>
-                    <h4>7</h4>
+                    <h4>{{listutilisateur.length}}</h4>
                 </div>
             </div>
         </div>
@@ -49,82 +49,12 @@
         <div class="col-xl-12">
             <div >
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" *ngFor="let quiz of listquiz">
                         <div class="shadow p-3 mb-5 bg-white rounded">
                             <div class="row centrer">
                                 <div class="col-sm">
-                                    <h4>5 questions</h4>
-                                    <h5>Base de la circulation</h5>
-                                </div>
-                                <div class="col-sm-3">
-                                    <mat-icon style="color: #3F72AF;">games</mat-icon>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="shadow p-3 mb-5 bg-white rounded">
-                            <div class="row centrer">
-                                <div class="col-sm">
-                                    <h4>3 questions</h4>
-                                    <h5>Comprendre le code de la route</h5>
-                                </div>
-                                <div class="col-sm-3">
-                                    <mat-icon style="color: #3F72AF;">games</mat-icon>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="shadow p-3 mb-5 bg-white rounded">
-                            <div class="row centrer">
-                                <div class="col-sm">
-                                    <h4>5 questions</h4>
-                                    <h5>Base de la circulation</h5>
-                                </div>
-                                <div class="col-sm-3">
-                                    <mat-icon style="color: #3F72AF;">games</mat-icon>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="shadow p-3 mb-5 bg-white rounded">
-                            <div class="row centrer">
-                                <div class="col-sm">
-                                    <h4>3 questions</h4>
-                                    <h5>Comprendre le code de la route</h5>
-                                </div>
-                                <div class="col-sm-3">
-                                    <mat-icon style="color: #3F72AF;">games</mat-icon>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="shadow p-3 mb-5 bg-white rounded">
-                            <div class="row centrer">
-                                <div class="col-sm">
-                                    <h4>5 questions</h4>
-                                    <h5>Base de la circulation</h5>
-                                </div>
-                                <div class="col-sm-3">
-                                    <mat-icon style="color: #3F72AF;">games</mat-icon>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="shadow p-3 mb-5 bg-white rounded">
-                            <div class="row centrer">
-                                <div class="col-sm">
-                                    <h4>3 questions</h4>
-                                    <h5>Comprendre le code de la route</h5>
+                                    <h4>{{quiz.questions.length}} questions</h4>
+                                    <h5>{{quiz.label}}</h5>
                                 </div>
                                 <div class="col-sm-3">
                                     <mat-icon style="color: #3F72AF;">games</mat-icon>

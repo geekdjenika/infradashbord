@@ -1,5 +1,5 @@
 <div >
-    <form (ngSubmit)="onSubmit()" autocomplete="off" >
+    <form (ngSubmit)="addInfraction(description,reference,montant1,devise1,categorieamende1,montant2,devise2,categorieamende2,langue,file)" autocomplete="off" >
 
       <div >
         <div class="alert alert-success" role="alert" *ngIf="alertTrue">
@@ -9,7 +9,7 @@
         <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
           <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
         </div>
-        
+
         <div >
             <span > Désignation *</span>
             <div class="shadow p-3 mb-5 bg-white rounded">
@@ -43,14 +43,13 @@
                                 </select>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-box mb-3">
-                        <span class="details">Catégorie</span>
+                        <span class="details" >Catégorie</span>
                         <select name="categorieamende1" [(ngModel)]="categorieamende1" class="select" class="form-control">
-                            <option >Gros porteurs</option>
-                            <option >Véhicules légers</option>
+                            <option *ngFor="let categorie of listcategorie">{{categorie.categorie}}</option>
                         </select>
                     </div>
                 </div>
@@ -75,14 +74,13 @@
                                 </select>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="input-box mb-3">
                         <span class="details">Catégorie</span>
                         <select name="categorieamende2" [(ngModel)]="categorieamende2" class="select" class="form-control">
-                            <option >Gros porteurs</option>
-                            <option >Véhicules légers</option>
+                          <option *ngFor="let categorie of listcategorie">{{categorie.categorie}}</option>
                         </select>
                     </div>
                 </div>
@@ -90,28 +88,33 @@
         </div>
 
         <div class="shadow p-3 mb-5 bg-white rounded">
-            <span>Ajouter un vocal</span>
+          <span>Ajouter un vocal</span>
+          <form action="">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="input-box mb-3">
-                        <Label for="inputs" >Langue</Label>
-                        <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
-                            <option>bm</option>
-                            <option>fr</option>
-                            <option>en</option>
-                        </select>
-                    </div>                  
-                </div>
-                <div class="col-md-9">
-                    <div class="input-box mb-3">
-                        <div class="input-box">
-                            <Label >Selectionner un audio</Label>
-                            <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
-                              (change)="selectFile($event)" accept="audio/*" required />
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="col-md-3">
+                  <div class="input-box mb-3">
+                      <Label for="inputs" >Langue</Label>
+                      <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
+                          <option>bm</option>
+                          <option>fr</option>
+                          <option>en</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-md-9">
+                  <div class="input-box mb-3">
+                      <div class="input-box">
+                          <Label >Selectionner un audio</Label>
+                          <!-- <input type="file" id = "file" name ="file" (change)="selectFile($event)" required placeholder="Joindre un fichier"/> -->
+                          <!-- <input type="file" formControlName="file" class="form-control" (change)="selectFile($event)"
+                    style="margin-bottom: 1%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;"> -->
+                          <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
+                            (change)="selectFile($event)" accept="audio/*" required />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </form>
         </div>
       </div>
       <div class="button">

@@ -24,6 +24,7 @@ export class AuthService {
         this.router.navigate(['/dashboard/accueil'])
       },
       error: e => {
+        console.log(e)
         Swal.fire({
           title: 'Erreur',
           text: 'Nom d\'utilisateur ou mot de passe incorrecte !',
@@ -36,6 +37,9 @@ export class AuthService {
 
   signUp(username: string, email: string, password: string, element : HTMLElement) {
     console.log('trtman ...')
+    console.log('username ... '+username)
+    console.log('email ... '+email)
+    console.log('password ... '+password)
     return this.connexionservice.signup(username, email, password).subscribe({
       next: data => {
         console.log(data)
@@ -46,7 +50,7 @@ export class AuthService {
         console.log(e)
         Swal.fire({
           title: 'Erreur',
-          text: e.error.message,
+          text: e,
           timer: 1000,
           icon: 'error'
         })

@@ -36,6 +36,8 @@ export class ConseilcreerComponent implements OnInit {
       this.message="Vous devez choisir un fichier audio !";
       this.erreur=true;
       return;
+    } else {
+      this.file = e.target["file"][0];
     }
   }
 

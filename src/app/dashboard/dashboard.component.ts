@@ -1,3 +1,4 @@
+import { UtilisateurService } from 'src/app/services/utilisateur/utilisateur.service';
 import { StorageService } from './../services/auth/storage.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -16,10 +17,14 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+  monuser: any
 
-  constructor(private observer: BreakpointObserver, private router: Router, private storageservice : StorageService) { }
+  constructor(private observer: BreakpointObserver, private router: Router, private storageservice : StorageService, private utilisateurservice : UtilisateurService) { }
 
   ngOnInit(): void {
+    this.utilisateurservice.getUserConnecte().subscribe(data=> {
+      this.monuser = data;
+    })
   }
 
   ngAfterViewInit() {

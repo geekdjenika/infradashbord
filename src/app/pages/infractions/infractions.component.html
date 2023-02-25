@@ -12,28 +12,28 @@
                   </div>
               </div>
                 <div class="panel panel-primary">
-                    
+
                       <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
-                
+
                         <thead>
                           <tr>
                             <th >Désignation</th>
                             <th >Réference</th>
-                            <th >Amendes</th>
+                            <!-- <th >Amendes</th> -->
                             <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let g of Geeg | paginate:{itemsPerPage:8,currentPage:page}">
-                            <td>Arrêt non  authorisé</td>
-                            <td>Article 23</td>
-                            <td>2000 F</td>
+                          <tr *ngFor="let infraction of listinfraction | paginate:{itemsPerPage:8,currentPage:page}">
+                            <td>{{infraction.description}}</td>
+                            <td>{{infraction.reference}}</td>
+                            <!-- <td>2000 F</td> -->
                             <td><button class="supress">Supprimer</button>
-                              <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal">Modifier</button>
+                              <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getInfraction(infraction.id)">Modifier</button>
                             </td>
                           </tr>
                         </tbody>
-                        
+
                       </table>
                       <br>
                       <pagination-controls class="pagination" (pageChange)="page=$event" nextLabel="Suivant" previousLabel="Précedent">
@@ -50,22 +50,50 @@
 <div class="modal fade" id="critere" tabindex="100" aria-labelledby="critere" aria-hidden="true">
   <div class="modal-dialog d-flex justify-content-center">
     <div class="modal-content w-100">
-      <form 
-        (submit)="modifier() "
+      <form
+        (submit)="modifier(mid,description,reference,langue,file)"
         style="width: 96%; margin-left: auto;margin-right: auto;">
         <label class="gras">Modifier l'infraction :</label>
         <br>
         <div >
           <br>
           <div class="input-box">
-            <span > Désignation *</span>
-            <textarea class="form-control" name="description" [(ngModel)]="description" id="details"
+            <span >Désignation *</span>
+            <textarea class="form-control" name="{{description}}" [(ngModel)]="description" id="details"
                 placeholder="Donner une description de l'infraction" required></textarea>
           </div>
           <div class="input-box">
             <span>Réference *</span>
-            <input type="text" [(ngModel)]="reference"  id="inputs" name="reference" placeholder="Article ..." class="form-control" autocomplete="off"  required>
+            <input type="text" [(ngModel)]="reference"  id="inputs" name="{{reference}}" placeholder="Article ..." class="form-control" autocomplete="off"  required>
           </div>
+
+          <span>Ajouter un vocal</span>
+            <form action="">
+              <div class="row">
+                <div class="col-md-3">
+                    <div class="input-box mb-3">
+                        <Label for="inputs" >Langue</Label>
+                        <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
+                            <option>bm</option>
+                            <option>fr</option>
+                            <option>en</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="input-box mb-3">
+                        <div class="input-box">
+                            <Label >Selectionner un audio</Label>
+                            <!-- <input type="file" id = "file" name ="file" (change)="selectFile($event)" required placeholder="Joindre un fichier"/> -->
+                            <!-- <input type="file" formControlName="file" class="form-control" (change)="selectFile($event)"
+                      style="margin-bottom: 1%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;"> -->
+                            <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
+                              (change)="selectFile($event)" accept="audio/*" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
         </div>
         <br>
         <button type="submit" class="but" style="margin-bottom: 20px;">Envoyer</button>

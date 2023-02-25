@@ -29,7 +29,7 @@ h4 {
     font-size: 16px;
     display: flex;
     margin-left: 31%;
-    margin-top: 2%;
+    /* margin-top: 2%; */
 }
 .pagination ::ng-deep .ngx-pagination .current {
     background-color: #3F72AF; }
@@ -56,4 +56,8 @@ h4 {
 .but:hover {
     background: #FFF;
     color: #3F72AF;
+}
+
+.rounded {
+  min-height: 180px;
 }

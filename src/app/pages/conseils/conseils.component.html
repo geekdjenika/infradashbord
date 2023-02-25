@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="centrer">
                 <div class="row" >
-                    <div class="col-md-6" *ngFor="let g of Geeg | paginate:{itemsPerPage:6,currentPage:page}; let i = index">
+                    <div class="col-md-6" *ngFor="let conseil of listconseil | paginate:{itemsPerPage:4,currentPage:page}; let i = index">
                         <div class="shadow p-3 mb-5 bg-white rounded">
                             <div class="row">
                                 <div class="col-md-12">
@@ -19,7 +19,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <span>Conseil ......................................</span>
+                                    <span>{{conseil.conseil}}...</span>
+                                    <!-- <span *ngIf="isCollapsed">{{conseil.conseil}}</span> -->
+                                    <!-- <a href="javascript:void(0)" (click)="isCollapsed = !isCollapsed">{{ isCollapsed ?
+                                      'voir plus' : 'moins' }}</a> -->
                                 </div>
                             </div>
                     </div>
