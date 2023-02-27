@@ -15,11 +15,11 @@
                                             <h4>#{{i+1}}</h4>
                                         </div>
                                         <div class="col-sm-6 d-flex justify-content-end">
-                                            <i class="bi bi-pencil-square" data-mdb-target="#critere" data-mdb-toggle="modal"></i>
+                                            <i class="bi bi-pencil-square" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getConseil(conseil.id)"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <span>{{conseil.conseil}}...</span>
+                                    <span>{{conseil.conseil}}</span>
                                     <!-- <span *ngIf="isCollapsed">{{conseil.conseil}}</span> -->
                                     <!-- <a href="javascript:void(0)" (click)="isCollapsed = !isCollapsed">{{ isCollapsed ?
                                       'voir plus' : 'moins' }}</a> -->
@@ -40,7 +40,7 @@
     <div class="modal-dialog d-flex justify-content-center">
       <div class="modal-content w-100">
         <form
-          (submit)="modifier()"
+          (submit)="modifier(conseil, mconseil.id)"
           style="width: 96%; margin-left: auto;margin-right: auto;">
           <label class="gras">Modifier le conseil :</label>
           <br>
@@ -48,12 +48,12 @@
             <br>
             <div class="input-box">
               <span >Conseil *</span>
-              <textarea class="form-control" name="description" [(ngModel)]="conseil" id="details"
+              <textarea class="form-control espace" name="conseil" [(ngModel)]="conseil" id="details"
                   placeholder="Saississez votre conseil" required></textarea>
             </div>
           </div>
           <br>
-          <button type="submit" class="but" style="margin-bottom: 20px;">Envoyer</button>
+          <button type="submit" class="but" style="margin-bottom: 20px;">Modifier</button>
           <br>
         </form>
       </div>

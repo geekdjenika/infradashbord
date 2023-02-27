@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { InfractionService } from 'src/app/services/infraction/infraction.service';
 import Swal from 'sweetalert2';
-import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-infractions',
@@ -14,9 +13,6 @@ export class InfractionsComponent implements OnInit {
 
   Geeg:any = [1,2,3,4,5,6,7,8,9,0]
   page:number=1;
-
-  @ViewChild('childModal') public childModal:ModalDirective;
-
 
   message!: String;
   erreur!: Boolean;
@@ -120,10 +116,11 @@ export class InfractionsComponent implements OnInit {
         Swal.fire({
           title: 'Importé !',
           text: `${this.listexcel.length} infraction importée avec succès !`,
-          timer: 5000,
+          timer: 10000,
           icon: 'success'
         })
-        this.getAllInfraction()
+        window.location.reload()
+        // this.getAllInfraction()
       },
       error: e=> {
         console.log(e)
@@ -143,7 +140,8 @@ export class InfractionsComponent implements OnInit {
           timer: 1000,
           icon: 'success'
         })
-        this.getAllInfraction()
+        // this.getAllInfraction()
+        window.location.reload()
       },
       error: e=> {
         console.log(e)
@@ -172,25 +170,25 @@ export class InfractionsComponent implements OnInit {
         this.infractionservice.deleteInfraction(id).subscribe({
           next: data => {
             console.log(data)
+            this.getAllInfraction()
             Swal.fire({
               title: 'Supprimée !',
-              text: 'Infraction supprimée avec succès.',
-              timer: 1000,
+              text: `Infraction supprimée avec succès, ${this.listinfraction.length} infractions restantes.`,
+              timer: 5000,
               icon: 'success'
             })
-            this.getAllInfraction()
           },
           error: e => {
             const rslt = e.error.text;
             console.log(e)
             if(rslt === 'Infraction supprimée avec succès !') {
+              this.getAllInfraction()
               Swal.fire({
                 title: 'Supprimée !',
-                text: 'Infraction supprimée avec succès.',
-                timer: 1000,
+                text: `Infraction supprimée avec succès, ${this.listinfraction.length} infractions restantes.`,
+                timer: 3000,
                 icon: 'success'
               })
-              this.getAllInfraction()
             } else {
               Swal.fire({
                 title: 'Erreur !',

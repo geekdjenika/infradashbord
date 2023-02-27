@@ -15,4 +15,27 @@ export class ConseilService {
     return this.http.get(`${this.host}/conseil/get/all`);
   }
 
+  addConseil(conseil: string, infraction: string, langue: string, audio: File) {
+    const data = new FormData()
+    data.append('conseil', conseil)
+    data.append('langue', langue)
+    data.append('file', audio)
+    if(infraction !== '') {
+      data.append('infraction',infraction);
+    }
+
+    return this.http.post(`${this.host}/conseil/add`,data);
+  }
+
+  updateConseil(conseil: string, id: number) {
+    const data = new FormData()
+    data.append('conseil', conseil)
+
+    return this.http.put(`${this.host}/conseil/update/${id}`,data);
+  }
+
+  getConseilById(id: number) {
+    return this.http.get(`${this.host}/conseil/get/${id}`);
+  }
+
 }

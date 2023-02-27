@@ -1,5 +1,5 @@
 <div class="centrer">
-    <form (ngSubmit)="onSubmit()" autocomplete="off" >
+    <form (ngSubmit)="onSubmit(conseil,infraction,langue,file)" autocomplete="off" >
 
       <div >
         <div class="alert alert-success" role="alert" *ngIf="alertTrue">
@@ -9,7 +9,7 @@
         <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
           <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
         </div>
-        
+
         <div >
             <span > Conseil *</span>
             <div class="shadow p-3 mb-5 bg-white rounded">
@@ -24,11 +24,9 @@
                     <div class="input-box mb-3">
                         <Label for="inputs" >Langue</Label>
                         <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
-                            <option>bm</option>
-                            <option>fr</option>
-                            <option>en</option>
+                          <option *ngFor="let langue of listlangue">{{langue.label}}</option>
                         </select>
-                    </div>                  
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <div class="input-box mb-3">
@@ -41,6 +39,20 @@
                 </div>
             </div>
         </div>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+          <span>Lier à une infraction</span>
+          <div class="row">
+              <div class="col-md">
+                  <div class="input-box mb-3">
+                      <Label for="inputs" >Choisissez une infraction</Label>
+                      <select name="infraction" [(ngModel)]="infraction" class="select" class="form-control" aria-placeholder="infraction 001">
+                        <option></option>
+                        <option *ngFor="let infraction of listinfraction">{{infraction.description}}</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>
       </div>
       <div class="button">
         <input class="but" type="submit" value="Ajouter">
