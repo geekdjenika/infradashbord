@@ -62,4 +62,14 @@ export class InfractionService {
 
   }
 
+  deleteInfraction(id : number) {
+    return this.http.delete(`${this.host}/infraction/delete/${id}`);
+  }
+
+  importer(excel : File) {
+    const data = new FormData();
+    data.append('excel', excel)
+    return this.http.post(`${this.host}/infraction/importer`,data);
+  }
+
 }

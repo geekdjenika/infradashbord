@@ -95,9 +95,7 @@
                   <div class="input-box mb-3">
                       <Label for="inputs" >Langue</Label>
                       <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
-                          <option>bm</option>
-                          <option>fr</option>
-                          <option>en</option>
+                        <option *ngFor="let langue of listlangue">{{langue.label}}</option>
                       </select>
                   </div>
               </div>

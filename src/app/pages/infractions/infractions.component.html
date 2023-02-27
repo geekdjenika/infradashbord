@@ -6,8 +6,11 @@
                 <div class="table-title">
                   <div class="row">
                       <div class="col-sm-8"><h2>Liste des <b>infractions</b></h2></div>
-                      <div class="col-sm-4">
-                          <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()"><i class="bi bi-plus"></i> Ajouter une infraction</button>
+                      <div class="col-sm-2">
+                        <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()"><i class="bi bi-plus"></i> Ajouter</button>
+                      </div>
+                      <div class="col-sm-2">
+                          <button type="button" class="btn-info add-new"  data-mdb-target="#importer" data-mdb-toggle="modal"><i class="bi bi-box-arrow-in-down"></i> Importer</button>
                       </div>
                   </div>
               </div>
@@ -28,7 +31,7 @@
                             <td>{{infraction.description}}</td>
                             <td>{{infraction.reference}}</td>
                             <!-- <td>2000 F</td> -->
-                            <td><button class="supress">Supprimer</button>
+                            <td><button class="supress" (click)="supprimerInfraction(infraction.id)">Supprimer</button>
                               <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getInfraction(infraction.id)">Modifier</button>
                             </td>
                           </tr>
@@ -74,9 +77,7 @@
                     <div class="input-box mb-3">
                         <Label for="inputs" >Langue</Label>
                         <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
-                            <option>bm</option>
-                            <option>fr</option>
-                            <option>en</option>
+                          <option *ngFor="let langue of listlangue">{{langue.label}}</option>
                         </select>
                     </div>
                 </div>
@@ -96,7 +97,40 @@
             </form>
         </div>
         <br>
-        <button type="submit" class="but" style="margin-bottom: 20px;">Envoyer</button>
+        <button type="submit" class="but" style="margin-bottom: 20px;">Modifier</button>
+        <br>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="importer" tabindex="100" aria-labelledby="importer" aria-hidden="true">
+  <div class="modal-dialog d-flex justify-content-center">
+    <div class="modal-content w-100">
+      <form
+        (submit)="importer(excel)"
+        style="width: 96%; margin-left: auto;margin-right: auto;">
+        <label class="gras">Importer une liste d'infraction :</label>
+        <br>
+        <div >
+          <br>
+            <form action="">
+              <div class="row">
+                <div class="col-md">
+                    <div class="input-box mb-3">
+                        <div class="input-box">
+                            <Label >Selectionner un fichier excel</Label>
+                            <input type="file" [(ngModel)]="file" placeholder="listinfraction.xlxs" id="logo" name="excel" class="form-control"
+                              (change)="selectExcel($event)" accept=".xls,.xlsx" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <br>
+        <button type="submit" class="but" style="margin-bottom: 20px;">Importer</button>
         <br>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import { data } from 'jquery';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-infractioncreer',
@@ -12,17 +13,18 @@ import { data } from 'jquery';
 })
 export class InfractioncreerComponent implements OnInit {
 
-  description:any;
-  reference:any;
-  categorieamende1:any;
-  devise1:any;
-  montant1:any;
-  categorieamende2:any;
-  devise2:any;
-  montant2:any;
-  langue:any;
+  description:string = '';
+  reference:string = '';
+  categorieamende1:string = 'Gros porteurs';
+  devise1:string = '';
+  montant1:string = '';
+  categorieamende2:string = 'Gros porteurs';
+  devise2:string = '';
+  montant2:string = '';
+  langue:string = 'bm';
   file:any;
 
+  infraction:any
 
   message!: String;
   erreur!: Boolean;
@@ -30,6 +32,7 @@ export class InfractioncreerComponent implements OnInit {
   alertTrue:any
   messageerror:any
   listcategorie:any
+  listlangue:any
 
   constructor(
     private categorieservice : CategorieService,
@@ -39,7 +42,6 @@ export class InfractioncreerComponent implements OnInit {
     private activeroute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('je suis lancé')
     this.categorieservice.getAllCategorie().subscribe({
       next: data => {
         this.listcategorie = data
@@ -49,11 +51,23 @@ export class InfractioncreerComponent implements OnInit {
         console.log(e)
       }
     })
+
+    this.categorieservice.getAllLangue().subscribe({
+      next: data => {
+        this.listlangue = data
+        console.log(this.listlangue)
+      },
+      error: e => {
+        console.log(e)
+      }
+    })
+
   }
 
   onSubmit() {
     this.router.navigate(['/dashboard/infractions']);
   }
+
 
   selectFile(e:any){
     //verification si une photo a été choisie ou pas
@@ -77,14 +91,49 @@ export class InfractioncreerComponent implements OnInit {
     categorie2 : string,
     langue : string,
     audio : File) {
-      return this.infractionservice.addInfraction(description,reference,montant1,devive1,categorie1,montant2,devive2,categorie2,langue,audio).subscribe({
-        next: data => {
-          console.log(data)
-        },
-        error: e=> {
-          console.log(e)
-        }
-      })
+      if(description === '' || reference === '') {
+        Swal.fire({
+          title: 'Erreur !',
+          text: 'Renseigner les champs obligatoire !',
+          timer: 1500,
+          icon: 'error'
+        })
+        return
+      } else {
+        return this.infractionservice.addInfraction(description,reference,montant1,devive1,categorie1,montant2,devive2,categorie2,langue,audio).subscribe({
+          next: data => {
+            console.log(data)
+            this.infraction = data
+            Swal.fire({
+              title: 'Ajouté avec succès !',
+              text: this.infraction.description,
+              timer: 1000,
+              icon: 'success'
+            })
+            this.router.navigate(['/dashboard/infractions']);
+          },
+          error: e=> {
+            const status = e.error.status;
+            if(status == 500) {
+              Swal.fire({
+                title: 'Ajouté avec succès !',
+                text: 'Infraction ajoutée avec succès !',
+                timer: 1000,
+                icon: 'success'
+              })
+              this.router.navigate(['/dashboard/infractions']);
+            } else {
+              console.log(e)
+              Swal.fire({
+                title: 'Erreur !',
+                text: e.error.text,
+                timer: 1000,
+                icon: 'error'
+              })
+            }
+          }
+        })
+      }
   }
 
 

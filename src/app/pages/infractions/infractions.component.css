@@ -6,7 +6,7 @@
     width: 700px;
     margin: 20px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -24,10 +24,8 @@
     color: #fff;
     float: right;
     height: 30px;
-    /* font-weight: bold; */
-    /* font-size: 12px; */
     text-shadow: none;
-    min-width: 250px;
+    min-width: 120px;
     border-radius: 50px;
     line-height: 13px;
 }

@@ -15,4 +15,8 @@ export class CategorieService {
     return this.http.get(`${this.host}/categorie/get/all`);
   }
 
+  getAllLangue() {
+    return this.http.get(`${this.host}/new/langue/get/all`);
+  }
+
 }
