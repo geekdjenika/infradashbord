@@ -38,20 +38,24 @@ export class StorageService {
   }
 
   public isAdmin(): boolean {
-    const user = JSON.parse(window.sessionStorage.getItem(this.USER_KEY)!);
-    var resultat : boolean = false;
-    const roles = user.roles as string[];
-    roles.forEach(element => {
-      if(element == 'ADMIN') {
-        resultat = true;
-        return true;
-
-      } else {
-        resultat = false;
-        return false;
-      }
-    });
-    return resultat;
+    return this.recupererUser().roles.includes('ADMIN')
   }
+
+  // public isAdmin(): boolean {
+  //   const user = JSON.parse(window.sessionStorage.getItem(this.USER_KEY)!);
+  //   var resultat : boolean = false;
+  //   const roles = user.roles as string[];
+  //   roles.forEach(element => {
+  //     if(element == 'ADMIN') {
+  //       resultat = true;
+  //       return true;
+
+  //     } else {
+  //       resultat = false;
+  //       return false;
+  //     }
+  //   });
+  //   return resultat;
+  // }
 
 }

@@ -1,3 +1,4 @@
+import { StorageService } from './../../services/auth/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
@@ -14,7 +15,10 @@ export class QuizComponent implements OnInit {
   page:number=1;
   listquiz : any
 
+  admin!: boolean
+
   constructor(
+    private storageservice: StorageService,
     private quizservice : QuizService,
     private router: Router) { }
 
@@ -29,6 +33,10 @@ export class QuizComponent implements OnInit {
         console.log(e)
       }
     })
+
+    this.admin = this.storageservice.isAdmin()
+    console.log(this.admin)
+
   }
 
   ajouterInfraction() {

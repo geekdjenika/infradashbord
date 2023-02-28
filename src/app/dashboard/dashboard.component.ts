@@ -19,12 +19,18 @@ export class DashboardComponent implements OnInit {
   sidenav!: MatSidenav;
   monuser: any
 
+  admin!: boolean
+
   constructor(private observer: BreakpointObserver, private router: Router, private storageservice : StorageService, private utilisateurservice : UtilisateurService) { }
 
   ngOnInit(): void {
     this.utilisateurservice.getUserConnecte().subscribe(data=> {
       this.monuser = data;
     })
+
+    this.admin = this.storageservice.isAdmin()
+    console.log(this.admin)
+
   }
 
   ngAfterViewInit() {

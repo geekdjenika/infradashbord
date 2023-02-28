@@ -38,4 +38,8 @@ export class ConseilService {
     return this.http.get(`${this.host}/conseil/get/${id}`);
   }
 
+  delete(id: number) {
+    return this.http.delete(`${this.host}/conseil/delete/${id}`);
+  }
+
 }

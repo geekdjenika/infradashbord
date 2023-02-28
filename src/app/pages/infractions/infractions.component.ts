@@ -1,3 +1,4 @@
+import { StorageService } from './../../services/auth/storage.service';
 import { CategorieService } from './../../services/categorie/categorie.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -30,7 +31,10 @@ export class InfractionsComponent implements OnInit {
   excel:any;
   listexcel:any;
 
+  admin!: boolean
+
   constructor(
+    private storageservice: StorageService,
     private categorieservice : CategorieService,
     private infractionservice : InfractionService,
     private router: Router) {
@@ -50,6 +54,9 @@ export class InfractionsComponent implements OnInit {
         console.log(e)
       }
     })
+
+    this.admin = this.storageservice.isAdmin()
+    console.log(this.admin)
 
 
   }

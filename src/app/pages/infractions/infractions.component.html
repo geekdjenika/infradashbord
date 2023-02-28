@@ -5,12 +5,15 @@
               <div class="panel-body">
                 <div class="table-title">
                   <div class="row">
+                    <h3 *ngIf="!admin">
+                      Connectez-vous en tant que admin pour pouvoir gérer !
+                    </h3>
                       <div class="col-sm-8"><h2>Liste des <b>infractions</b></h2></div>
                       <div class="col-sm-2">
-                        <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()"><i class="bi bi-plus"></i> Ajouter</button>
+                        <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter</button>
                       </div>
                       <div class="col-sm-2">
-                          <button type="button" class="btn-info add-new"  data-mdb-target="#importer" data-mdb-toggle="modal"><i class="bi bi-box-arrow-in-down"></i> Importer</button>
+                          <button type="button" class="btn-info add-new"  data-mdb-target="#importer" data-mdb-toggle="modal" *ngIf="admin"><i class="bi bi-box-arrow-in-down"></i> Importer</button>
                       </div>
                   </div>
               </div>
@@ -22,16 +25,17 @@
                           <tr>
                             <th >Désignation</th>
                             <th >Réference</th>
-                            <!-- <th >Amendes</th> -->
-                            <th>Actions</th>
+                            <th >Vocal</th>
+                            <th *ngIf="admin">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr *ngFor="let infraction of listinfraction | paginate:{itemsPerPage:8,currentPage:page}">
                             <td>{{infraction.description}}</td>
                             <td>{{infraction.reference}}</td>
-                            <!-- <td>2000 F</td> -->
-                            <td><button class="supress" (click)="supprimerInfraction(infraction.id)">Supprimer</button>
+                            <td *ngIf="infraction.vocals.length > 0">{{infraction.vocals[0].langue.label}}</td>
+                            <td *ngIf="infraction.vocals.length == 0">Non défini</td>
+                            <td *ngIf="admin"><button class="supress" (click)="supprimerInfraction(infraction.id)">Supprimer</button>
                               <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getInfraction(infraction.id)">Modifier</button>
                             </td>
                           </tr>

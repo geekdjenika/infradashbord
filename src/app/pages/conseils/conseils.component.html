@@ -1,7 +1,11 @@
 <div class="container" >
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn-info add-new"  (click)="ajouterConseil()"><i class="bi bi-plus"></i> Ajouter un nouveau conseil</button>
+          <h3 *ngIf="!admin">
+            Connectez-vous en tant que admin pour pouvoir gérer !
+          </h3>
+
+            <button type="button" class="btn-info add-new"  (click)="ajouterConseil()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter un nouveau conseil</button>
         </div>
         <div class="col-12">
             <div class="centrer">
@@ -11,12 +15,15 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-10">
                                             <h4>#{{i+1}}</h4>
                                         </div>
-                                        <div class="col-sm-6 d-flex justify-content-end">
+                                        <div class="col-sm-1 d-flex justify-content-end modif" *ngIf="admin">
                                             <i class="bi bi-pencil-square" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getConseil(conseil.id)"></i>
-                                    </div>
+                                        </div>
+                                        <div class="col-sm-1 d-flex justify-content-end suppr" *ngIf="admin">
+                                          <i class="bi bi-trash" (click)="supprimer(conseil.id)"></i>
+                                      </div>
                                 </div>
                                 <div class="col-md-12">
                                     <span>{{conseil.conseil}}</span>

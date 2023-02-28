@@ -18,7 +18,8 @@
       />
 
       <h4 class="name">{{monuser.username}}</h4>
-      <p class="designation">{{monuser.roles[0].name}}</p>
+      <p class="designation" *ngIf="admin">ADMIN</p>
+      <p class="designation" *ngIf="!admin">USER</p>
 
       <mat-divider></mat-divider>
 

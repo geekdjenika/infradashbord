@@ -7,7 +7,7 @@
                   <div class="row">
                       <div class="col-sm-8"><h2>Liste des <b>quiz</b></h2></div>
                       <div class="col-sm-4">
-                          <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()"><i class="bi bi-plus"></i> Ajouter un quiz</button>
+                          <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter un quiz</button>
                       </div>
                   </div>
               </div>

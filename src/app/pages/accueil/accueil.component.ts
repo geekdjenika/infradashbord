@@ -19,6 +19,8 @@ export class AccueilComponent implements OnInit {
   listutilisateur : any
   listquiz : any
 
+  admin!: boolean
+
   constructor(
     private storageservice: StorageService,
     private infractionservice : InfractionService,
@@ -72,6 +74,9 @@ export class AccueilComponent implements OnInit {
         console.log(e)
       }
     })
+
+    this.admin = this.storageservice.isAdmin()
+    console.log(this.admin)
 
   }
 
