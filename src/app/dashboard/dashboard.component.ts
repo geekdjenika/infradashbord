@@ -24,8 +24,16 @@ export class DashboardComponent implements OnInit {
   constructor(private observer: BreakpointObserver, private router: Router, private storageservice : StorageService, private utilisateurservice : UtilisateurService) { }
 
   ngOnInit(): void {
-    this.utilisateurservice.getUserConnecte().subscribe(data=> {
-      this.monuser = data;
+    this.utilisateurservice.getUserConnecte().subscribe({
+      next: data=> {
+        this.monuser = data;
+        localStorage.setItem('valid','true')
+      },
+      error: e => {
+        if(e.status == 401) {
+          localStorage.setItem('valid','false')
+        }
+      }
     })
 
     this.admin = this.storageservice.isAdmin()

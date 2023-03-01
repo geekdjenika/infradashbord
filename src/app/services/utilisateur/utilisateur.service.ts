@@ -20,5 +20,13 @@ export class UtilisateurService {
     return this.http.get(`${this.host}/user/${this.storageservice.recupererUser().id}`)
   }
 
+  deleteUser(id: number) {
+    return this.http.delete(`${this.host}/user/delete/${id}`)
+  }
+
+  adminUser(id: number) {
+    return this.http.put(`${this.host}/user/admin/${id}`,null);
+  }
+
 
 }

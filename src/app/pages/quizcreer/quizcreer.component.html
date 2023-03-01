@@ -1,5 +1,5 @@
 <div >
-    <form (ngSubmit)="addQuiz()" autocomplete="off" >
+    <form (ngSubmit)="addQuestion(question, reponse, reponse1, reponse2, reponse3)" autocomplete="off" >
 
       <div >
         <div class="alert alert-success" role="alert" *ngIf="alertTrue">
@@ -9,34 +9,7 @@
         <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
           <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
         </div>
-        
-        <div >
-            <span > Label *</span>
-            <div class="shadow p-3 mb-5 bg-white rounded">
-            <textarea class="form-control" name="label" [(ngModel)]="label" id="details"
-                placeholder="Donner un nom à votre quiz !" required></textarea>
-            </div>
-        </div>
-      </div>
-      <div class="button">
-        <input class="but" type="submit" value="Ajouter le quiz">
-      </div>
-    </form>
 
-</div>
-
-<div >
-    <form (ngSubmit)="addQuestion()" autocomplete="off" >
-
-      <div >
-        <div class="alert alert-success" role="alert" *ngIf="alertTrue">
-          <i class="fa fa-check-circle-o" aria-hidden="true" style="color: green;"></i>  Infraction ajoutée avec succès !
-        </div>
-
-        <div class="alert alert-danger" role="alert" *ngIf="alertNomTrue">
-          <i class="fa fa-ban" aria-hidden="true" style="color: red;"></i>{{messageerror}}
-        </div>
-        
 
         <div >
             <span>Question *</span>

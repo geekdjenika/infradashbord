@@ -180,7 +180,7 @@ export class InfractionsComponent implements OnInit {
             this.getAllInfraction()
             Swal.fire({
               title: 'Supprimée !',
-              text: `Infraction supprimée avec succès, ${this.listinfraction.length} infractions restantes.`,
+              text: `Infraction supprimée avec succès, ${this.listinfraction.length - 1} infractions restantes.`,
               timer: 5000,
               icon: 'success'
             })
@@ -192,7 +192,7 @@ export class InfractionsComponent implements OnInit {
               this.getAllInfraction()
               Swal.fire({
                 title: 'Supprimée !',
-                text: `Infraction supprimée avec succès, ${this.listinfraction.length} infractions restantes.`,
+                text: `Infraction supprimée avec succès, ${this.listinfraction.length -1} infractions restantes.`,
                 timer: 3000,
                 icon: 'success'
               })

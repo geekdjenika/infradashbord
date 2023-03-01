@@ -105,8 +105,8 @@ export class ConseilsComponent implements OnInit {
             console.log(data)
             this.getAllConseil()
             Swal.fire({
-              title: 'Supprimée !',
-              text: `Conseil supprimé avec succès, ${this.listconseil.length} conseils restants.`,
+              title: 'Supprimé !',
+              text: `Conseil supprimé avec succès, ${this.listconseil.length - 1} conseils restants.`,
               timer: 5000,
               icon: 'success'
             })
@@ -118,7 +118,7 @@ export class ConseilsComponent implements OnInit {
               this.getAllConseil()
               Swal.fire({
                 title: 'Supprimé !',
-                text: `Conseil supprimé avec succès, ${this.listconseil.length} conseils restants.`,
+                text: `Conseil supprimé avec succès, ${this.listconseil.length -1} conseils restants.`,
                 timer: 3000,
                 icon: 'success'
               })

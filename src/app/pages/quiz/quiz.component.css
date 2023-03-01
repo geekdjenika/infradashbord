@@ -6,7 +6,7 @@
     width: 700px;
     margin: 20px auto;
     background: #fff;
-    padding: 20px;	
+    padding: 20px;
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {
@@ -51,6 +51,22 @@ table.table {
     line-height: 13px;
     margin-left: 1px;
     margin-right:2px;
+}
+
+.voir {
+  background-color: #3F72AF;
+  color: #fff;
+  float: right;
+  height: 30px;
+  /* font-weight: bold; */
+  /* font-size: 12px; */
+  text-shadow: none;
+  border: none;
+  min-width: 50px;
+  border-radius: 50px;
+  line-height: 13px;
+  margin-left: 1px;
+  margin-right:2px;
 }
 
 .supress {

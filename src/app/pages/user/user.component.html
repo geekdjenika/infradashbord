@@ -9,6 +9,14 @@
               <div class="card-body">
                 <h5 class="card-title">{{user.username}}</h5>
                 <p class="card-text">{{user.roles[0].name}}</p>
+                <div class="row">
+                  <div class="col-md-6 d-flex justify-content-end modif" *ngIf="admin" (click)="rendreAdmin(user.id, user.username)">
+                    <i class="bi bi-pencil-square"></i> admin
+                  </div>
+                <div class="col-md-6 d-flex justify-content-end suppr" *ngIf="admin">
+                  <i class="bi bi-trash" (click)="deleteUser(user.id)"></i>
+                </div>
+                </div>
               </div>
 
             </div>
