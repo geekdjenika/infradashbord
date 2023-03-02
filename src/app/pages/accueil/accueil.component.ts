@@ -39,6 +39,9 @@ export class AccueilComponent implements OnInit {
       },
       error: e => {
         console.log(e)
+        if(e.status == 401) {
+          this.storageservice.clean()
+        }
       }
     })
 
@@ -50,6 +53,9 @@ export class AccueilComponent implements OnInit {
       },
       error: e => {
         console.log(e)
+        if(e.status == 401) {
+          this.storageservice.clean()
+        }
       }
     })
 
@@ -61,6 +67,9 @@ export class AccueilComponent implements OnInit {
       },
       error: e => {
         console.log(e)
+        if(e.status == 401) {
+          this.storageservice.clean()
+        }
       }
     })
 
@@ -72,6 +81,9 @@ export class AccueilComponent implements OnInit {
       },
       error: e => {
         console.log(e)
+        if(e.status == 401) {
+          this.storageservice.clean()
+        }
       }
     })
 

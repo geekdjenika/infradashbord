@@ -78,6 +78,10 @@ export class QuizComponent implements OnInit {
   }
 
   addQuestionToQuiz(id: number, question1: string, question2: string, question3: string) {
+    console.log(id)
+    console.log(question1)
+    console.log(question2)
+    console.log(question3)
     this.quizservice.addQuestionsToQuiz(id,question1,question2,question3).subscribe({
       next: data => {
         var rst = data

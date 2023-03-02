@@ -27,12 +27,9 @@ export class DashboardComponent implements OnInit {
     this.utilisateurservice.getUserConnecte().subscribe({
       next: data=> {
         this.monuser = data;
-        localStorage.setItem('valid','true')
       },
       error: e => {
-        if(e.status == 401) {
-          localStorage.setItem('valid','false')
-        }
+        console.log(e)
       }
     })
 

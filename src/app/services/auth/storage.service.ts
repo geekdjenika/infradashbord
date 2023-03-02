@@ -31,9 +31,10 @@ export class StorageService {
   public connexionReussi(): boolean {
     const user = window.sessionStorage.getItem(this.USER_KEY);
     if (user) {
-      if(localStorage.getItem('valid') === 'true') {
-        return true;
-      }
+      // if(localStorage.getItem('valid') === 'true') {
+      //   return true;
+      // }
+      return true;
 
     }
 
@@ -43,22 +44,5 @@ export class StorageService {
   public isAdmin(): boolean {
     return this.recupererUser().roles.includes('ADMIN')
   }
-
-  // public isAdmin(): boolean {
-  //   const user = JSON.parse(window.sessionStorage.getItem(this.USER_KEY)!);
-  //   var resultat : boolean = false;
-  //   const roles = user.roles as string[];
-  //   roles.forEach(element => {
-  //     if(element == 'ADMIN') {
-  //       resultat = true;
-  //       return true;
-
-  //     } else {
-  //       resultat = false;
-  //       return false;
-  //     }
-  //   });
-  //   return resultat;
-  // }
 
 }
