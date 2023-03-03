@@ -37,6 +37,8 @@ export class QuizComponent implements OnInit {
 
   admin!: boolean
 
+  searhText: any
+
   constructor(
     private storageservice: StorageService,
     private quizservice : QuizService,

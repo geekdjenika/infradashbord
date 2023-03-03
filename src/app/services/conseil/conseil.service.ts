@@ -27,9 +27,10 @@ export class ConseilService {
     return this.http.post(`${this.host}/conseil/add`,data);
   }
 
-  updateConseil(conseil: string, id: number) {
+  updateConseil(conseil: string, audio: File, id: number) {
     const data = new FormData()
     data.append('conseil', conseil)
+    data.append('file', audio)
 
     return this.http.put(`${this.host}/conseil/update/${id}`,data);
   }

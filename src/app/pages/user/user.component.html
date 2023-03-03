@@ -1,6 +1,21 @@
 <div class="container">
     <div class="row">
-        <div  class=" col-6 col-sm-3 col-md-4 col-lg-3" *ngFor=" let user of listutilisateur | paginate:{itemsPerPage:8, currentPage:page}; let index = index">
+      <div class="row">
+        <div class="col-md-9">
+
+        </div>
+        <div class="col-md-3">
+          <div class="input-group">
+            <div id="search-autocomplete" class="form-outline add-new">
+              <input type="search" id="form1" class="form-control" placeholder="Rechercher" [(ngModel)]="searhText"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+        <div  class="col-md-3" *ngFor=" let user of listutilisateur | paginate:{itemsPerPage:8, currentPage:page} | filter:searhText; let index = index">
 
             <div *ngIf="longueur!==0" class="card" style="margin-bottom: 4%;">
               <img *ngIf="user.image!=null" src="assets/img/{{user.image}}" class="card-img-top" alt="profil" >
@@ -10,10 +25,10 @@
                 <h5 class="card-title">{{user.username}}</h5>
                 <p class="card-text">{{user.roles[0].name}}</p>
                 <div class="row">
-                  <div class="col-md-6 d-flex justify-content-end modif" *ngIf="admin" (click)="rendreAdmin(user.id, user.username)">
+                  <div class="col-sm-6 d-flex justify-content-end modif" *ngIf="admin" (click)="rendreAdmin(user.id, user.username)">
                     <i class="bi bi-pencil-square"></i> admin
                   </div>
-                <div class="col-md-6 d-flex justify-content-end suppr" *ngIf="admin">
+                <div class="col-sm-6 d-flex justify-content-end suppr" *ngIf="admin">
                   <i class="bi bi-trash" (click)="deleteUser(user.id)"></i>
                 </div>
                 </div>

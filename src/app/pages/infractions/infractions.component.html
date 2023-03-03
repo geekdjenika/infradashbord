@@ -8,12 +8,23 @@
                     <h3 *ngIf="!admin">
                       Connectez-vous en tant que admin pour pouvoir gérer !
                     </h3>
-                      <div class="col-sm-8"><h2>Liste des <b>infractions</b></h2></div>
+                    <div class="col-sm-8"></div>
                       <div class="col-sm-2">
                         <button type="button" class="btn-info add-new"  (click)="ajouterInfraction()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter</button>
                       </div>
                       <div class="col-sm-2">
                           <button type="button" class="btn-info add-new"  data-mdb-target="#importer" data-mdb-toggle="modal" *ngIf="admin"><i class="bi bi-box-arrow-in-down"></i> Importer</button>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                      <div class="col-sm-8"><h2>Liste des <b>infractions</b></h2></div>
+                      <div class="col-sm-4">
+                        <div class="input-group">
+                          <div id="search-autocomplete" class="form-outline">
+                            <input type="search" id="form1" class="form-control" placeholder="Rechercher" [(ngModel)]="searhText"/>
+                          </div>
+                        </div>
                       </div>
                   </div>
               </div>
@@ -29,8 +40,8 @@
                             <th *ngIf="admin">Actions</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr *ngFor="let infraction of listinfraction | paginate:{itemsPerPage:8,currentPage:page}">
+                        <tbody >
+                          <tr *ngFor="let infraction of listinfraction | paginate:{itemsPerPage:8,currentPage:page} | filter:searhText;">
                             <td>{{infraction.description}}</td>
                             <td>{{infraction.reference}}</td>
                             <td *ngIf="infraction.vocals.length > 0">{{infraction.vocals[0].langue.label}}</td>
@@ -73,7 +84,6 @@
             <span>Réference *</span>
             <input type="text" [(ngModel)]="reference"  id="inputs" name="{{reference}}" placeholder="Article ..." class="form-control" autocomplete="off"  required>
           </div>
-
           <span>Ajouter un vocal</span>
             <form action="">
               <div class="row">

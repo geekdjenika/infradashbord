@@ -27,6 +27,7 @@
     "datatables.net": "^1.13.2",
     "datatables.net-dt": "^1.13.2",
     "material-icons": "^1.13.1",
+    "ng2-search-filter": "^0.5.1",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.7.2",

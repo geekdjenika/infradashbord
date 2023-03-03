@@ -33,6 +33,8 @@ export class InfractionsComponent implements OnInit {
 
   admin!: boolean
 
+  searhText: any
+
   constructor(
     private storageservice: StorageService,
     private categorieservice : CategorieService,

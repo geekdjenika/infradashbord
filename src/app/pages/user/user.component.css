@@ -90,18 +90,18 @@ img{
     margin-left: 31%;
     margin-top: 2%;
 }
+
+.suppr {
+  color: red;
+}
+
+.modif {
+  color: #3F72AF;
+}
+
 .pagination ::ng-deep .ngx-pagination .current {
     background-color: #3F72AF; }
 
-ion-col{
-  display: flex;
-
-}
-
-ion-col.md.hydrated{
-  margin-left:28%;
-  border-radius: 56px;
-}
 
  @media screen and (max-width:450px) {
 
@@ -119,6 +119,6 @@ img{
     margin-top: 4%;
     margin-left: 29%;
   }
-  
+
  }
 

@@ -1,3 +1,4 @@
+import { CategorieService } from './../../services/categorie/categorie.service';
 import { StorageService } from './../../services/auth/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,13 +15,19 @@ export class ConseilsComponent implements OnInit {
   page:number=1;
   listconseil:any;
   isCollapsed : boolean = false;
+  file:any;
+  langue:string = 'bm';
+  listlangue:any
 
   conseil:any;
   mconseil:any;
 
   admin!: boolean
 
+  searhText: any
+
   constructor(
+    private categorieservice: CategorieService,
     private storageservice: StorageService,
     private conseilservice : ConseilService,
     private router: Router) { }
@@ -29,9 +36,28 @@ export class ConseilsComponent implements OnInit {
 
     this.getAllConseil()
 
+    this.categorieservice.getAllLangue().subscribe({
+      next: data => {
+        this.listlangue = data
+        console.log(this.listlangue)
+      },
+      error: e => {
+        console.log(e)
+      }
+    })
+
     this.admin = this.storageservice.isAdmin()
     console.log(this.admin)
 
+  }
+
+  selectFile(e:any){
+    //verification si une photo a été choisie ou pas
+    if(!e.target.files[0] || e.target.files[0].length==0){
+      return;
+    } else {
+      this.file = e.target.files[0];
+    }
   }
 
   getConseil(id: number) {
@@ -64,8 +90,8 @@ export class ConseilsComponent implements OnInit {
     this.router.navigate(['/dashboard/ajouterconseil']);
   }
 
-  modifier(conseil: string, id: number) {
-    this.conseilservice.updateConseil(conseil,id).subscribe({
+  modifier(conseil: string, audio: File, id: number) {
+    this.conseilservice.updateConseil(conseil,audio,id).subscribe({
       next: data => {
         console.log(data)
         Swal.fire({

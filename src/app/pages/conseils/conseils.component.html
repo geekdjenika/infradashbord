@@ -1,16 +1,27 @@
 <div class="container" >
     <div class="row">
+
         <div class="col-12">
           <h3 *ngIf="!admin">
             Connectez-vous en tant que admin pour pouvoir gérer !
           </h3>
-
-            <button type="button" class="btn-info add-new"  (click)="ajouterConseil()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter un nouveau conseil</button>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                <div id="search-autocomplete" class="form-outline add-new">
+                  <input type="search" id="form1" class="form-control" placeholder="Rechercher" [(ngModel)]="searhText"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <button type="button" class="btn-info add-new"  (click)="ajouterConseil()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter un nouveau conseil</button>
+            </div>
+          </div>
         </div>
         <div class="col-12">
             <div class="centrer">
                 <div class="row" >
-                    <div class="col-md-6" *ngFor="let conseil of listconseil | paginate:{itemsPerPage:4,currentPage:page}; let i = index">
+                    <div class="col-md-6" *ngFor="let conseil of listconseil | paginate:{itemsPerPage:4,currentPage:page} | filter:searhText; let i = index">
                         <div class="shadow p-3 mb-5 bg-white rounded">
                             <div class="row">
                                 <div class="col-md-12">
@@ -27,9 +38,6 @@
                                 </div>
                                 <div class="col-md-12">
                                     <span>{{conseil.conseil}}</span>
-                                    <!-- <span *ngIf="isCollapsed">{{conseil.conseil}}</span> -->
-                                    <!-- <a href="javascript:void(0)" (click)="isCollapsed = !isCollapsed">{{ isCollapsed ?
-                                      'voir plus' : 'moins' }}</a> -->
                                 </div>
                             </div>
                     </div>
@@ -47,7 +55,7 @@
     <div class="modal-dialog d-flex justify-content-center">
       <div class="modal-content w-100">
         <form
-          (submit)="modifier(conseil, mconseil.id)"
+          (submit)="modifier(conseil, file, mconseil.id)"
           style="width: 96%; margin-left: auto;margin-right: auto;">
           <label class="gras">Modifier le conseil :</label>
           <br>
@@ -59,6 +67,30 @@
                   placeholder="Saississez votre conseil" required></textarea>
             </div>
           </div>
+          <br>
+          <span>Ajouter un vocal</span>
+          <div class="row">
+            <div class="col-md-3">
+                <div class="input-box mb-3">
+                    <Label for="inputs" >Langue</Label>
+                    <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
+                      <option *ngFor="let langue of listlangue">{{langue.label}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="input-box mb-3">
+                    <div class="input-box">
+                        <Label >Selectionner un audio</Label>
+                        <!-- <input type="file" id = "file" name ="file" (change)="selectFile($event)" required placeholder="Joindre un fichier"/> -->
+                        <!-- <input type="file" formControlName="file" class="form-control" (change)="selectFile($event)"
+                  style="margin-bottom: 1%; width: 90%; padding: 10px; font-size: 20px; border-radius: 5px;"> -->
+                        <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
+                          (change)="selectFile($event)" accept="audio/*" required />
+                    </div>
+                </div>
+            </div>
+        </div>
           <br>
           <button type="submit" class="but" style="margin-bottom: 20px;">Modifier</button>
           <br>

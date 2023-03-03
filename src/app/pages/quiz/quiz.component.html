@@ -5,7 +5,7 @@
               <div class="panel-body">
                 <div class="table-title">
                   <div class="row">
-                      <div class="col-md-6"><h2>Liste des <b>quiz</b></h2></div>
+                      <div class="col-md-6"></div>
                       <div class="col-md-3">
                           <button type="button" class="btn-info add-new"  (click)="addNewQuestion()" *ngIf="admin"><i class="bi bi-plus"></i> Ajouter une question</button>
                       </div>
@@ -13,6 +13,17 @@
                         <button type="button" class="btn-info add-new" *ngIf="admin" data-mdb-target="#addquiz" data-mdb-toggle="modal"><i class="bi bi-plus"></i> Ajouter un quiz</button>
                       </div>
                   </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-8"><h2>Liste des <b>quiz</b></h2></div>
+                    <div class="col-md-4">
+                      <div class="input-group">
+                        <div id="search-autocomplete" class="form-outline">
+                          <input type="search" id="form1" class="form-control" placeholder="Rechercher" [(ngModel)]="searhText"/>
+                        </div>
+                      </div>
+                    </div>
+                </div>
               </div>
                 <div class="panel panel-primary">
 
@@ -26,12 +37,12 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let quiz of listquiz | paginate:{itemsPerPage:8,currentPage:page}, let i = index">
+                          <tr *ngFor="let quiz of listquiz | paginate:{itemsPerPage:8,currentPage:page} | filter:searhText;">
                             <td>{{quiz.label}}</td>
                             <td>{{quiz.questions.length}} <button *ngIf="quiz.questions.length > 0" class="voir" data-mdb-target="#voirquestion" data-mdb-toggle="modal" (click)="getQuiz(quiz.id)">voir</button></td>
                             <td *ngIf="admin">
                                 <button class="supress" (click)="supprimerQuiz(quiz.id)">Supprimer</button>
-                                <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getQuiz(quiz.id)">Ajouter des questions</button>
+                                <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getQuiz(quiz.id)">Ajouter une question</button>
                             </td>
                         </tbody>
 
@@ -53,20 +64,22 @@
       <form
         (submit)="addQuestionToQuiz(mid,question1,question3,question3) "
         style="width: 96%; margin-left: auto;margin-right: auto;">
-        <label class="gras">Choississez les questions pour {{mlabel}}</label>
+        <label class="gras">Choississez une question pour {{mlabel}}</label>
         <div >
           <br>
           <div class="input-box">
-              <option style="font-weight: 100;" selected>Question 1</option>
+              <option style="font-weight: 100;" selected>Question</option>
 
               <select name="question1" [(ngModel)]="question1" class="select" class="form-control">
+                  <option value="null">Choisissez la question</option>
                   <option *ngFor="let question of listquestion">{{question.question}}</option>
               </select>
           </div>
-          <div class="input-box">
+          <!-- <div class="input-box">
             <option style="font-weight: 100;" selected>Question 2</option>
 
             <select name="question2" [(ngModel)]="question2" class="select" class="form-control">
+              <option value="null">Choisissez la question</option>
                 <option *ngFor="let question of listquestion">{{question.question}}</option>
             </select>
           </div>
@@ -74,9 +87,10 @@
             <option style="font-weight: 100;" selected>Question 3</option>
 
             <select name="question3" [(ngModel)]="question3" class="select" class="form-control">
+              <option value="null">Choisissez la question</option>
                 <option *ngFor="let question of listquestion">{{question.question}}</option>
             </select>
-          </div>
+          </div> -->
         </div>
         <br>
         <button type="submit" class="but" style="margin-bottom: 20px;">Ajouter</button>

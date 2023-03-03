@@ -26,6 +26,8 @@ import { ConseilcreerComponent } from './pages/conseilcreer/conseilcreer.compone
 import { QuizcreerComponent } from './pages/quizcreer/quizcreer.component';
 import { QuestiontoquizComponent } from './pages/questiontoquiz/questiontoquiz.component';
 import { AuthInterceptorProvider } from './services/interceptor/auth.interceptor';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +58,7 @@ import { AuthInterceptorProvider } from './services/interceptor/auth.interceptor
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

@@ -18,6 +18,8 @@ export class UserComponent implements OnInit {
 
   admin!: boolean
 
+  searhText: any
+
   constructor(private utilisateurservice : UtilisateurService, private storageservice: StorageService) { }
 
   ngOnInit(): void {
@@ -93,25 +95,38 @@ export class UserComponent implements OnInit {
   }
 
   rendreAdmin(id: number, nom : string) {
-    this.utilisateurservice.adminUser(id).subscribe({
-      next: data => {
-        var res = data
-        console.log(res)
-        Swal.fire({
-          title: 'Administrateur !',
-          text: `${nom} est desormais administrateur !`,
-          timer: 3000,
-          icon: 'success'
-        })
-        this.getAllUser()
-      },
-      error: e => {
-        console.log(e)
-        Swal.fire({
-          title: 'Erreur !',
-          text: `Opération échouée !`,
-          timer: 3000,
-          icon: 'error'
+    Swal.fire({
+      title: 'Attention !',
+      text: `${nom} va être adminisrateur et pourra ajouter, modifier et supprimer des données !`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, confirmer!',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.utilisateurservice.adminUser(id).subscribe({
+          next: data => {
+            var res = data
+            console.log(res)
+            Swal.fire({
+              title: 'Administrateur !',
+              text: `${nom} est desormais administrateur !`,
+              timer: 3000,
+              icon: 'success'
+            })
+            this.getAllUser()
+          },
+          error: e => {
+            console.log(e)
+            Swal.fire({
+              title: 'Erreur !',
+              text: `Opération échouée !`,
+              timer: 3000,
+              icon: 'error'
+            })
+          }
         })
       }
     })
