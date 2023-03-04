@@ -1,3 +1,4 @@
+import { AmendeComponent } from './../pages/amende/amende.component';
 import { IsAuthenticatedGuard } from './../services/guard/is-authenticated.guard';
 import { NgModule } from "@angular/core";
 import { AccueilComponent } from "../pages/accueil/accueil.component";
@@ -39,6 +40,12 @@ const routes : Routes = [
                 path: 'ajouterinfraction',
                 component: InfractioncreerComponent,
                 canActivate: [IsAuthenticatedGuard]
+            },
+
+            {
+              path: 'amendes',
+              component: AmendeComponent,
+              canActivate: [IsAuthenticatedGuard]
             },
 
             {

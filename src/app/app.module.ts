@@ -27,6 +27,7 @@ import { QuizcreerComponent } from './pages/quizcreer/quizcreer.component';
 import { QuestiontoquizComponent } from './pages/questiontoquiz/questiontoquiz.component';
 import { AuthInterceptorProvider } from './services/interceptor/auth.interceptor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AmendeComponent } from './pages/amende/amende.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     InfractioncreerComponent,
     ConseilcreerComponent,
     QuizcreerComponent,
-    QuestiontoquizComponent
+    QuestiontoquizComponent,
+    AmendeComponent
   ],
   imports: [
     BrowserModule,

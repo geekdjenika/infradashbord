@@ -72,4 +72,22 @@ export class InfractionService {
     return this.http.post(`${this.host}/infraction/importer`,data);
   }
 
+  //############################AMENDE####################################
+  getAllFine() {
+    return this.http.get(`${this.host}/amende/get/all`);
+  }
+
+  getFineById(id: number) {
+    return this.http.get(`${this.host}/amende/get/${id}`);
+  }
+
+  updateFine(audio : File, langue: string, id: number) {
+    const data = new FormData();
+    data.append('file', audio)
+    data.append('langue', langue)
+
+    return this.http.put(`${this.host}/amende/update/${id}`,data);
+
+  }
+
 }

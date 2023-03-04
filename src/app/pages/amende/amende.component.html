@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+      <div class="col-xl-12">
+          <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="panel-body">
+              <div class="table-title">
+                <br>
+                <div class="row">
+                    <div class="col-sm-8"><h2>Liste des <b>amendes</b></h2></div>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <div id="search-autocomplete" class="form-outline">
+                          <input type="search" id="form1" class="form-control" placeholder="Rechercher" [(ngModel)]="searhText"/>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+              <div class="panel panel-primary">
+
+                    <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0" width="100%">
+
+                      <thead>
+                        <tr>
+                          <th >Montant</th>
+                          <th >Nombre d'infraction</th>
+                          <th >Vocal</th>
+                          <th *ngIf="admin">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr *ngFor="let amende of listamende | paginate:{itemsPerPage:8,currentPage:page} | filter:searhText;">
+                          <td>{{amende.montant.montant}} {{amende.montant.devise}}</td>
+                          <td>{{amende.infractions.length}}</td>
+                          <td *ngIf="amende.vocals.length > 0">{{amende.vocals[0].langue.label}}</td>
+                          <td *ngIf="amende.vocals.length == 0">Non défini</td>
+                          <td *ngIf="admin">
+                            <button class="add-new" data-mdb-target="#critere" data-mdb-toggle="modal" (click)="getFine(amende.id)">Ajouter un vocal</button>
+                          </td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                    <br>
+                    <pagination-controls class="pagination" (pageChange)="page=$event" nextLabel="Suivant" previousLabel="Précedent">
+                    </pagination-controls>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="critere" tabindex="100" aria-labelledby="critere" aria-hidden="true">
+<div class="modal-dialog d-flex justify-content-center">
+  <div class="modal-content w-100">
+    <form
+      (submit)="modifier(mid,langue,file)"
+      style="width: 96%; margin-left: auto;margin-right: auto;">
+      <br>
+      <div >
+        <br>
+        <span>{{monmontant}}</span>
+        <br>
+        <span>Ajouter un vocal</span>
+          <form action="">
+            <div class="row">
+              <div class="col-md-3">
+                  <div class="input-box mb-3">
+                      <Label for="inputs" >Langue</Label>
+                      <select name="langue" [(ngModel)]="langue" class="select" class="form-control" aria-placeholder="bm">
+                        <option *ngFor="let langue of listlangue">{{langue.label}}</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-md-9">
+                  <div class="input-box mb-3">
+                      <div class="input-box">
+                          <Label >Selectionner un audio</Label>
+                          <input type="file" [(ngModel)]="file" placeholder="infraction001.m4a" id="logo" name="file" class="form-control"
+                            (change)="selectFile($event)" accept="audio/*" required />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </form>
+      </div>
+      <br>
+      <button type="submit" class="but" style="margin-bottom: 20px;">Ajouter</button>
+      <br>
+    </form>
+  </div>
+</div>
+</div>
