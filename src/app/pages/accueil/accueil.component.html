@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-sm">
                     <h5>Infractions</h5>
-                    <h4>{{listinfraction.length}}</h4>
+                    <h4>{{listinfraction?.length}}</h4>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-sm">
                     <h5>Conseils</h5>
-                    <h4>{{listconseil.length}}</h4>
+                    <h4>{{listconseil?.length}}</h4>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-sm">
                     <h5>Utilisateurs</h5>
-                    <h4>{{listutilisateur.length}}</h4>
+                    <h4>{{listutilisateur?.length}}</h4>
                 </div>
             </div>
         </div>
@@ -53,8 +53,8 @@
                         <div class="shadow p-3 mb-5 bg-white rounded">
                             <div class="row centrer">
                                 <div class="col-sm">
-                                    <h4>{{quiz.questions.length}} questions</h4>
-                                    <h5>{{quiz.label}}</h5>
+                                    <h4>{{quiz?.questions?.length}} questions</h4>
+                                    <h5>{{quiz?.label}}</h5>
                                 </div>
                                 <div class="col-sm-3">
                                     <mat-icon style="color: #3F72AF;">games</mat-icon>
